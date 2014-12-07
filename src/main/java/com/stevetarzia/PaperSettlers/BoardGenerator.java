@@ -69,7 +69,7 @@ class BoardGenerator{
 
         printHeaders();
         drawHexes();
-        drawInstructions();
+        // drawInstructions();
         closeOutputFile();
     }
 
@@ -311,9 +311,8 @@ class BoardGenerator{
     void printHeaders() throws IOException{
         //        fw.write("rotate 90\n0 "+(-10*HEXSIZE)+" translate\n");
         //        fw.write("{  0 72 360 arc stroke } def\n" );
-        fw.write("%!PS-Adobe-3.0\n");
-        fw.write("%%DocumentMedia: default 792 612 0 () ()\n");
-        fw.write("%%Orientation: Portrait\n");
+        fw.write("%!PS-Adobe-3.0 EPSF-3.0\n");
+        fw.write("%%BoundingBox: 0 0 "+ (int)(11.2*HEXSIZE) +" "+ (int)(12.3*HEXSIZE) +"\n");
         fw.write("%%EndComments\n");
 
         fw.write("/Times-Roman findfont\n" );
@@ -501,7 +500,8 @@ class BoardGenerator{
 
         label(pos,"Settlement");
         displace(pos,DOWN,.75*HEXSIZE);
-        displace(pos,RIGHT,2*HEXSIZE);        drawBrick(pos,HEXSIZE/2);
+        displace(pos,RIGHT,2*HEXSIZE);
+        drawBrick(pos,HEXSIZE/2);
         displace(pos,RIGHT,HEXSIZE);
         drawLumber(pos,HEXSIZE/2);
         displace(pos,RIGHT,HEXSIZE);
